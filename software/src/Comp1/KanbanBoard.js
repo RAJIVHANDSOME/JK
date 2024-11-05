@@ -61,9 +61,8 @@ const KanbanBoard = () => {
       }
     };
 
-    // Fetch data only if not available in localStorage
     if (!tickets.length || !users.length) fetchData();
-  }, []); // Only run on mount
+  }, []); 
 
   const sortedTickets = useMemo(() => {
     let sorted = [...tickets];
@@ -96,29 +95,24 @@ const KanbanBoard = () => {
     else if (viewOption === 'user') {
       const userGroups = {};
 
-      // Initialize groups with zero count
       users.forEach(user => {
         userGroups[user.name] = [];
       });
 
-      // Populate groups with tickets
       sortedTickets.forEach(ticket => {
         const userName = users.find(u => u.id === ticket.userId)?.name || 'Unknown';
         userGroups[userName].push(ticket);
       });
 
-      // Assign user groups to grouped object
       Object.keys(userGroups).forEach(user => {
         grouped[user] = userGroups[user];
       });
     }
     else if (viewOption === 'priority') {
-      // Initialize groups with zero count
       priorityGroups.forEach(priority => {
         grouped[priority] = [];
       });
 
-      // Populate groups with tickets
       sortedTickets.forEach(ticket => {
         // const priorityLabel = priorityGroups[ticket.priority] || 'No priority';
         const priorityLabel = ['No priority', 'Low', 'Medium', 'High', 'Urgent'][ticket.priority];
