@@ -1,0 +1,73 @@
+/* Container for the Kanban board */
+.kanban-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: #f4f4f4;
+  }
+  
+  .kanban-column {
+    flex: 1 1 22%; 
+    min-width: 200px; 
+    max-width: 240px;
+    border-radius: 4px;
+    padding: 10px;
+    
+  }
+  
+  .kanban-card {
+    min-width: 240px;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .kanban-board {
+      flex-direction: column;
+    }
+    
+    .kanban-column {
+      flex: 1 1 100%; 
+    }
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.avatar-top-right {
+  
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.icon-park-outline--dot {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%237d7d7d' stroke='%237d7d7d' stroke-width='4' d='M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z'/%3E%3C/svg%3E");
+}
